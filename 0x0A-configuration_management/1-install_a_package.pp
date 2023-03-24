@@ -1,20 +1,5 @@
-#!/usr/bin/env bash
-# Creates RSA key pair
+# install puppet-lint -v 2.5.0
 
-# Set the name of the private key file
-KEY_NAME="school"
-
-# Set the number of bits for the key
-KEY_BITS=4096
-
-# Set the passphrase for the key
-PASSPHRASE="betty"
-
-# Create the key pair
-ssh-keygen -t rsa -b $KEY_BITS -f $KEY_NAME -N "$PASSPHRASE"
-
-# Print the key fingerprint and randomart image
-ssh-keygen -lf $KEY_NAME
-
-# List the generated files
-ls -l $KEY_NAME $KEY_NAME.pub
+exec { 'puppet-lint':
+  command => '/usr/bin/apt-get -y install puppet-lint -v 2.5.0',
+}
